@@ -12,8 +12,8 @@ const PORT = process.env.PORT || 5000;
 
 // ✅ CORS configuration
 const allowedOrigins = [
-  'https://guileless-starship-c16c3b.netlify.app',
-  'https://nbmoneyapp.onrender.com',
+  'https://frontendpennywise.netlify.app',
+  'https://backendpennywise.netlify.app',
   'http://localhost:5173'
 ];
 
@@ -26,7 +26,9 @@ app.use(cors({
       callback(new Error('Not allowed by CORS'));
     }
   },
-  credentials: true
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use(express.json());

@@ -3,7 +3,9 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true,
+    unique: true,
+    collation: { locale: 'en', strength: 2 } // Makes the uniqueness check case-insensitive
   },
   category: {
     type: String,
